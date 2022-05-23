@@ -9,7 +9,7 @@ public class Lesson_1_3 { //условные операторы
     Наша задача: написать программу, которая показывает, какую сумму на кредитке может получить клиент.
     */
     public String task6(int age, int salary) {
-        double limit = 0;
+        double limit;
 
         if (salary < 50_000) {
             limit = 1.0;
@@ -40,9 +40,12 @@ public class Lesson_1_3 { //условные операторы
         double percent = 1.1;
 
         if (age < 30 && age >= 23) {
-            percent += 0.05;
+            percent += 0.005;
         } else if (age < 23) {
-            percent += 0.1;
+            percent += 0.01;
+        }
+        if (salary > 80_000) {
+            percent -= 0.007;
         }
 
         double maxPayment = salary * 0.5;
@@ -51,7 +54,6 @@ public class Lesson_1_3 { //условные операторы
             return "Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту "
                     + new DecimalFormat("#0.00").format(payment) + " руб. Одобрено.";
         }
-
         return "Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту "
                 + new DecimalFormat("#0.00").format(payment) + " руб. Отказано";
     }
